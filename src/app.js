@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import localforage from "localforage";
 
+import data from "./data";
+
+import List from "./components/list";
+
 class App extends Component {
   constructor() {
     super();
     localforage.config();
 
     this.state = {
-      tasks: [
-        {
-          createdAt: Date.now(),
-          title: "First task",
-          completed: false
-        }
-      ]
+      tasks: data
     };
   }
 
@@ -26,7 +24,11 @@ class App extends Component {
   }
 
   render() {
-    return <div className="app">Hello World!</div>;
+    return (
+      <main className="app">
+        <List tasks={this.state.tasks} />
+      </main>
+    );
   }
 }
 
