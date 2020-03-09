@@ -5,12 +5,18 @@ import Task from "./task";
 
 function List(props) {
   const { tasks } = props;
+
   return (
-    <ListGroup className="task-list">
-      {tasks.map(t => (
-        <ListGroupItem key={t.id}>{t.title}</ListGroupItem>
-      ))}
-    </ListGroup>
+    <form>
+      <ul className="task-list list-group">
+        {tasks.map(t => (
+          <Task key={t.id} task={t} />
+        ))}
+        <li className="list-group-item" contentEditable>
+          New task...
+        </li>
+      </ul>
+    </form>
   );
 }
 
