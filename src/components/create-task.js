@@ -6,14 +6,15 @@ function CreateTask(props) {
 
   function handleKeyPress(e) {
     if (e.which === 13 && e.target.value) {
-      const tasks = [...list.state.tasks];
-      tasks.push(newTask(e.target.value));
+      const tasks = { ...list.state.tasks };
+      const newTask = createTask(e.target.value);
+      tasks[newTask.id] = newTask;
       list.setState({ tasks });
       e.target.value = "";
     }
   }
 
-  function newTask(title) {
+  function createTask(title) {
     return {
       id: shortid.generate(),
       createdAt: Date.now(),

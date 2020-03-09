@@ -1,15 +1,14 @@
 import React, { useEffect, useState, memo } from "react";
 
 function Task(props) {
-  const { index, list, task } = props;
+  const { list, task } = props;
   const [title, setTitle] = useState(task.title);
   const [checked, setChecked] = useState(task.completed);
 
   // update list state
   useEffect(() => {
-    const tasks = [...list.state.tasks];
-    const task = { ...tasks[index], title, completed: checked };
-    tasks.splice(index, 1, task);
+    const tasks = { ...list.state.tasks };
+    tasks[task.id] = { ...task, completed: checked, title };
     list.setState({ tasks });
     // eslint-disable-next-line
   }, [title, checked]);
