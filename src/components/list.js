@@ -3,6 +3,7 @@ import { Alert, ListGroup, ListGroupItem, Button } from "reactstrap";
 
 import Task from "./task";
 import CreateTask from "./create-task";
+import ClearCompleted from "./clear-completed";
 
 function List(props) {
   const { tasks } = props;
@@ -13,7 +14,7 @@ function List(props) {
         <Task key={t.id} task={t} />
       ))}
       <CreateTask />
-      <Button>clear completed</Button>
+      <ClearCompleted />
     </ul>
   );
 }
