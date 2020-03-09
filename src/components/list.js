@@ -32,7 +32,6 @@ class List extends Component {
 
   render() {
     const { searchTerm, tasks } = this.state;
-    console.log(tasks);
     return (
       <ul className="task-list list-group">
         <Search setSearchTerm={this.setSearchTerm} />
