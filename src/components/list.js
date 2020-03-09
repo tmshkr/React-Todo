@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Alert, ListGroup, ListGroupItem, Button } from "reactstrap";
 
 import Task from "./task";
@@ -19,4 +19,4 @@ function List(props) {
   );
 }
 
-export default List;
+export default memo(List);

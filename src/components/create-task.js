@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { AppContext } from "../app";
 import { newTask } from "../data";
 
@@ -25,4 +25,4 @@ function CreateTask() {
   );
 }
 
-export default CreateTask;
+export default memo(CreateTask);

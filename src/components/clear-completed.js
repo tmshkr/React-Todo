@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import { Button } from "reactstrap";
 
 import { AppContext } from "../app";
@@ -14,4 +14,4 @@ function ClearCompleted() {
   return <Button onClick={clear}>clear completed</Button>;
 }
 
-export default ClearCompleted;
+export default memo(ClearCompleted);
