@@ -1,15 +1,14 @@
-import React, { memo, useContext, useState } from "react";
-import { AppContext } from "../app";
+import React, { memo } from "react";
 import { newTask } from "../data";
 
-function CreateTask() {
-  const app = useContext(AppContext);
+function CreateTask(props) {
+  const { list } = props;
 
   function handleKeyPress(e) {
     if (e.which === 13 && e.target.value) {
-      const tasks = [...app.state.tasks];
+      const tasks = [...list.state.tasks];
       tasks.push(newTask(e.target.value));
-      app.setState({ tasks });
+      list.setState({ tasks });
       e.target.value = "";
     }
   }

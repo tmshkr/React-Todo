@@ -1,22 +1,28 @@
-import React, { memo } from "react";
-import { Alert, ListGroup, ListGroupItem, Button } from "reactstrap";
+import React, { Component } from "react";
 
 import Task from "./task";
 import CreateTask from "./create-task";
 import ClearCompleted from "./clear-completed";
 
-function List(props) {
-  const { tasks } = props;
-
-  return (
-    <ul className="task-list list-group">
-      {tasks.map((t, index) => (
-        <Task key={t.id} task={t} index={index} />
-      ))}
-      <CreateTask />
-      <ClearCompleted />
-    </ul>
-  );
+class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tasks: []
+    };
+  }
+  render() {
+    const { tasks } = this.state;
+    return (
+      <ul className="task-list list-group">
+        {tasks.map((t, index) => (
+          <Task key={t.id} list={this} task={t} index={index} />
+        ))}
+        <CreateTask list={this} />
+        <ClearCompleted list={this} />
+      </ul>
+    );
+  }
 }
 
-export default memo(List);
+export default List;

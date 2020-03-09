@@ -1,14 +1,12 @@
-import React, { memo, useContext } from "react";
+import React, { memo } from "react";
 import { Button } from "reactstrap";
 
-import { AppContext } from "../app";
-
-function ClearCompleted() {
-  const app = useContext(AppContext);
+function ClearCompleted(props) {
+  const { list } = props;
   const clear = () => {
-    let tasks = [...app.state.tasks];
+    let tasks = [...list.state.tasks];
     tasks = tasks.filter(t => !t.completed);
-    app.setState({ tasks });
+    list.setState({ tasks });
   };
 
   return <Button onClick={clear}>clear completed</Button>;

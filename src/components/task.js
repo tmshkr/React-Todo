@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState, memo } from "react";
-import { AppContext } from "../app";
+// import { AppContext } from "../app";
 
 function Task(props) {
+  const { list } = props;
   const [title, setTitle] = useState(props.task.title);
   const [checked, setChecked] = useState(props.task.completed);
 
-  const app = useContext(AppContext);
+  // const app = useContext(AppContext);
 
   // update app state
   useEffect(() => {
     const { index } = props;
-    const tasks = [...app.state.tasks];
+    const tasks = [...list.state.tasks];
     const task = { ...tasks[index], title, completed: checked };
     tasks.splice(index, 1, task);
-    app.setState({ tasks });
+    list.setState({ tasks });
   }, [title, checked]);
 
   return (
