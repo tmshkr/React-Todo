@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../app";
+import { newTask } from "../data";
 
 function CreateTask() {
-  const handleKeyPress = e => {
+  const app = useContext(AppContext);
+
+  function handleKeyPress(e) {
     if (e.which === 13) {
-      e.preventDefault();
-      console.log(e.target.textContent);
+      const tasks = [...app.state.tasks];
+      tasks.push(newTask(e.target.value));
+      app.setState({ tasks });
+      e.target.value = "";
     }
-  };
+  }
+
   return (
-    <li
-      className="list-group-item"
-      onKeyPress={handleKeyPress}
-      contentEditable
-      suppressContentEditableWarning={true}
-    >
-      New task...
+    <li className="list-group-item create-task">
+      <input
+        type="text"
+        placeholder="New task..."
+        onKeyPress={handleKeyPress}
+      />
     </li>
   );
 }

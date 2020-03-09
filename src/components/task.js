@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Task(props) {
-  const { title } = props.task;
+  const [title, setTitle] = useState(props.task.title);
+
   return (
-    <li
-      className="list-group-item"
-      contentEditable
-      suppressContentEditableWarning={true}
-    >
-      {title}
+    <li className="list-group-item task">
+      <input
+        type="text"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
     </li>
   );
 }
