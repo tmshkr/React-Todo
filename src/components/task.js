@@ -4,7 +4,8 @@ function Task(props) {
   const [title, setTitle] = useState(props.task.title);
 
   return (
-    <li className="list-group-item task">
+    <li className="task list-group-item">
+      <input type="checkbox" />
       <input
         type="text"
         value={title}

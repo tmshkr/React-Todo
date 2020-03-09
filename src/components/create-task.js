@@ -6,7 +6,7 @@ function CreateTask() {
   const app = useContext(AppContext);
 
   function handleKeyPress(e) {
-    if (e.which === 13) {
+    if (e.which === 13 && e.target.value) {
       const tasks = [...app.state.tasks];
       tasks.push(newTask(e.target.value));
       app.setState({ tasks });
