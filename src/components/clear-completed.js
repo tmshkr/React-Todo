@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 function ClearCompleted(props) {
   const { list } = props;
   const clear = () => {
-    let tasks = { ...list.state.tasks };
+    const tasks = { ...list.state.tasks };
     for (let key in tasks) {
       if (tasks[key].completed) {
         delete tasks[key];
