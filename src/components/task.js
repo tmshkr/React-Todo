@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, useState, memo } from "react";
-// import { AppContext } from "../app";
+import React, { useEffect, useState, memo } from "react";
 
 function Task(props) {
   const { list } = props;
   const [title, setTitle] = useState(props.task.title);
   const [checked, setChecked] = useState(props.task.completed);
-
-  // const app = useContext(AppContext);
 
   // update app state
   useEffect(() => {
