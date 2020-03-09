@@ -17,10 +17,8 @@ class List extends Component {
   }
 
   componentDidUpdate() {
-    console.log("CDU fired", Date.now());
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      console.log("setTimeout fired", Date.now());
       try {
         localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
       } catch {}
