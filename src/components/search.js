@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo } from "react";
 
 function Search(props) {
   const { setSearchTerm } = props;
