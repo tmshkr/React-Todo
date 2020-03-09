@@ -26,15 +26,11 @@ class List extends Component {
     }, 500);
   }
 
-  setSearchTerm = e => {
-    this.setState({ searchTerm: e.target.value });
-  };
-
   render() {
     const { searchTerm, tasks } = this.state;
     return (
       <ul className="task-list list-group">
-        <Search setSearchTerm={this.setSearchTerm} />
+        <Search list={this} />
         {Object.values(tasks)
           .filter(t => t.title.includes(searchTerm))
           .map(t => (
