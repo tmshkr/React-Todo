@@ -1,30 +1,14 @@
 const shortid = require("shortid");
 
-const tasks = [
-  {
+const tasks = [];
+
+for (let i = 0; i < 5; i++) {
+  tasks.push({
     id: shortid.generate(),
     createdAt: Date.now(),
-    title: "First task",
+    title: `Task ${i}`,
     completed: false
-  },
-  {
-    id: shortid.generate(),
-    createdAt: Date.now(),
-    title: "Second task",
-    completed: false
-  },
-  {
-    id: shortid.generate(),
-    createdAt: Date.now(),
-    title: "Third task",
-    completed: false
-  },
-  {
-    id: shortid.generate(),
-    createdAt: Date.now(),
-    title: "Fourth task",
-    completed: false
-  }
-];
+  });
+}
 
 export default tasks;

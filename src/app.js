@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from "react-router-dom";
 import localforage from "localforage";
-
 import data from "./data";
 
 import List from "./components/list";
