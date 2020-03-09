@@ -2,6 +2,7 @@ import React from "react";
 import { Alert, ListGroup, ListGroupItem } from "reactstrap";
 
 import Task from "./task";
+import CreateTask from "./create-task";
 
 function List(props) {
   const { tasks } = props;
@@ -12,9 +13,7 @@ function List(props) {
         {tasks.map(t => (
           <Task key={t.id} task={t} />
         ))}
-        <li className="list-group-item" contentEditable>
-          New task...
-        </li>
+        <CreateTask />
       </ul>
     </form>
   );

@@ -1,10 +1,4 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from "react-router-dom";
 import localforage from "localforage";
 import data from "./data";
 
@@ -30,11 +24,14 @@ class App extends Component {
 
   render() {
     return (
-      <main className="app">
-        <List tasks={this.state.tasks} />
-      </main>
+      <AppContext.Provider value={this}>
+        <main className="app">
+          <List tasks={this.state.tasks} />
+        </main>
+      </AppContext.Provider>
     );
   }
 }
 
+export const AppContext = React.createContext();
 export default App;
