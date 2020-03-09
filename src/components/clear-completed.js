@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "reactstrap";
 
+import { AppContext } from "../app";
+
 function ClearCompleted() {
-  return <Button>clear completed</Button>;
+  const app = useContext(AppContext);
+  const clear = () => {
+    let tasks = [...app.state.tasks];
+    tasks = tasks.filter(t => !t.completed);
+    app.setState({ tasks });
+  };
+
+  return <Button onClick={clear}>clear completed</Button>;
 }
 
 export default ClearCompleted;
