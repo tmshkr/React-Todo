@@ -17,8 +17,8 @@ function Task(props) {
     <li className="task list-group-item">
       <input
         type="checkbox"
-        value={checked}
-        onChange={() => setChecked(!checked)}
+        checked={checked}
+        onChange={e => setChecked(e.target.checked)}
       />
       <input
         type="text"
