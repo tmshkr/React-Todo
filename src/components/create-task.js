@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { newTask } from "../data";
+const shortid = require("shortid");
 
 function CreateTask(props) {
   const { list } = props;
@@ -11,6 +11,15 @@ function CreateTask(props) {
       list.setState({ tasks });
       e.target.value = "";
     }
+  }
+
+  function newTask(title) {
+    return {
+      id: shortid.generate(),
+      createdAt: Date.now(),
+      title,
+      completed: false
+    };
   }
 
   return (

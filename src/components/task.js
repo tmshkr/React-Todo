@@ -5,7 +5,7 @@ function Task(props) {
   const [title, setTitle] = useState(props.task.title);
   const [checked, setChecked] = useState(props.task.completed);
 
-  // update app state
+  // update list state
   useEffect(() => {
     const { index } = props;
     const tasks = [...list.state.tasks];
